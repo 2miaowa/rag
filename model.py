@@ -54,7 +54,7 @@ def rag_chain_model():
         "中国政府网",
         "Search for information about 中国政府网. For any questions about 中国政府网, you must use this tool!",
     )
-    os.environ["TAVILY_API_KEY"] = "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"
+    os.environ["TAVILY_API_KEY"] = ""
     search = TavilySearchResults()
     tools = [retriever_tool, search]
 
@@ -70,7 +70,7 @@ def rag_chain_model():
     """
     prompt = ChatPromptTemplate.from_template(template)
 
-    os.environ["DASHSCOPE_API_KEY"] = "sk-9bee361578294957a65df726f979fb02"
+    os.environ["DASHSCOPE_API_KEY"] = ""
     from langchain_community.chat_models.tongyi import ChatTongyi
 
     llm = ChatTongyi(model="qwen-plus")
@@ -86,6 +86,7 @@ def rag_chain_model():
         | llm
         | StrOutputParser()
     )
+    
     print('*'*30)
     print(rag_chain)
     print('*'*30)
